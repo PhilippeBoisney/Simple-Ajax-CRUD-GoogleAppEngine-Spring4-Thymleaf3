@@ -1,0 +1,40 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <body>
+  
+    <div th:fragment="content">
+    	<h1>Spring 4 + Thymeleaf 3 + App Engine + Internationalization + AdminLTE Template</h1>
+    	
+    	<div class="well">
+    		<strong>Thymeleaf</strong> est un moteur de template Java moderne côté serveur pour les environnements Web et autonomes.
+    		<a href="http://www.thymeleaf.org/" target="_blank"><span class="badge custom-badge"><i class="fa fa-leaf"></i> En savoir plus</span></a> | 
+    		<strong>AdminLTE</strong> est un l'un des meilleurs template HTML open source du web.
+    		<a href="https://almsaeedstudio.com/" target="_blank"><span class="badge custom-badge"><i class="fa fa-tasks"></i> En savoir plus</span></a>
+    	</div>
+    	
+    	<div class="well">
+    		<h3>Récupération des variables de traduction et du controller</h3>
+    		Le titre de l'application traduit : <span th:text="#{title.application}">App title</span> | 
+			La variable title définie dans le controller : <span th:text="${title}">Title</span> |
+			Accès direct à la variable titre : [[ ${title} ]]
+			
+			<h3>Récupération des informations de l'utilisateur Admin</h3>
+			<span th:text="${userAdmin.name}"></span>
+			<span th:text="${userAdmin.type}"></span>
+			<span th:text="${userAdmin.admin}"></span>
+		</div>		
+	    
+	    <hr style="width:60%;margin:5px auto;" />
+		
+		<div class="well">
+			<h3>Test du si alors sinon</h3>
+			<block th:text="${true} ? #{true} : #{false}"></block>
+			<block th:text="${false} ? #{true} : #{false}"></block> 
+			
+			<h3>Affichage en UTF-8 ?</h3>
+	    	<h1>Test (éèöôàç%ùîïàì)</h1>
+    	</div>
+    </div>
+  
+  </body>
+</html>

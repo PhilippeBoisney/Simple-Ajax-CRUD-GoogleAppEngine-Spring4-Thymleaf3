@@ -1,0 +1,23 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <body>
+  
+    <div th:fragment="content">
+		<h1>Simple CRUD</h1>
+		
+		<table class="table table-bordered">
+		  <tr>
+		    <th>Nom</th>
+		    <th>Description</th>
+		    <th>Stock</th>
+		  </tr>
+		  <tr th:each="product : ${products}">
+		    <td th:text="${product.name}">Nom par défaut</td>
+		    <td th:text="${product.description}">Description par défaut</td>
+		    <td th:text="${product.inStock} ? #{true} : #{false}">Non</td>
+		  </tr>
+		</table>
+    </div>
+  
+  </body>
+</html>

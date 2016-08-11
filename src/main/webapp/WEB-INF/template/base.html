@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:include="head::base"></head>
+	
+	<body class="hold-transition skin-purple sidebar-mini">
+		<div class="wrapper">
+			<!-- Main Header -->
+			<header class="main-header" th:include="header::base"></header>
+			
+			<!-- Left side column. contains the logo and sidebar -->
+			<aside class="main-sidebar" th:include="left-side-column::base"></aside>
+	
+			<!-- Content Wrapper. Contains page content -->
+			<div class="content-wrapper">
+				<!-- Content Header (Page header) -->
+				<section class="content-header" th:include="breadcrumb::base"></section>
+	
+				<!-- Main content -->
+				<section class="content" th:include="home::content"></section>
+			</div>
+	
+			<!-- Main Footer -->
+			<footer class="main-footer" th:include="footer :: (${userAdmin.admin}? footer-admin : footer-normal-user)"></footer>	
+			
+			<!-- Control Sidebar -->
+			<aside class="control-sidebar control-sidebar-dark" th:include="control-sidebar::base"></aside>
+			
+			<!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+			<div class="control-sidebar-bg"></div>
+		</div>
+		
+		<script type="text/javascript" src="/resources/js/jquery-2.2.3.min.js"></script>
+		<script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/resources/js/app.js"></script>
+	</body>
+</html>

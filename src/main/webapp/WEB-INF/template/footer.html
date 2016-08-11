@@ -1,0 +1,22 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <body>
+  
+    <div th:fragment="footer-admin">
+		<!-- To the right -->
+		<div class="pull-right hidden-xs">Anything you want</div>
+		<!-- Default to the left -->
+		<strong>Copyright &copy; 2016 <a href="#">Company</a>.
+		</strong> All rights reserved. DEPUIS FRAGMENT => ADMIN | Accès au titre dans le fragment ou pas ? ==> [[ ${title} ]]
+    </div>
+    
+    <div th:fragment="footer-normal-user">
+		<!-- To the right -->
+		<div class="pull-right hidden-xs">Anything you want</div>
+		<!-- Default to the left -->
+		<strong>Copyright &copy; 2016 <a href="#">Company</a>.
+		</strong> All rights reserved. DEPUIS FRAGMENT => NORMAL USER
+    </div>
+  
+  </body>
+</html>
