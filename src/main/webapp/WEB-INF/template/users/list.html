@@ -1,0 +1,109 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<body>
+
+	<div th:fragment="content">
+		<h2 th:utext="|#{views.admin.users.list.title} (<span id='counter'>${totalItems}</span> au total)|">
+			<i class="fa fa-users" aria-hidden="true"></i> Users
+		</h2>
+
+		<div class="box text-center">
+			<div class="box-header">
+				<div class="col-md-4 col-sm-4 col-xs-6">
+					<div class="dataTables_length"
+						style="text-align: left; margin-left: 5px;">
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#user-modal" title="Ajouter un utilisateur">
+							<i class="fa fa-user-plus"></i> Ajouter
+						</button>
+						| <label for="pageSizeSelect" class="control-label">Affichage par page : </label>
+						<select class="" id="pageSizeSelect">
+							<option th:each="pageSize : ${pageSizes}" th:text="${pageSize}" th:value="${pageSize}" th:selected="${pageSize} == ${selectedPageSize}"></option>
+						</select>
+					</div>
+				</div>
+				<div class="box-tools">
+					<div class="input-group input-group-sm" style="width:260px;margin-top:6px;">
+						<input type="text" id="table-search" name="table-search" class="form-control pull-right" placeholder="Rechercher par NOM">
+
+						<div class="input-group-btn">
+							<button type="submit" id="search-btn-ms" class="btn btn-default">
+								<i class="fa fa-search"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="box-body table-responsive no-padding">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Prénom</th>
+							<th>Nom</th>
+							<th>Pseudo</th>
+							<th>Mail</th>
+							<th>Admin</th>
+							<th class="col-md-1">Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:if="${users != null}" th:each="user, status : ${users}" th:id="${'el-' + user.id}">
+							<td th:id="${'el-userid-' + user.id}" th:with="nb=${status.index} + ${startID}" th:text="${nb}">ID</td>
+							<td th:id="${'el-surname-' + user.id}" th:text="${user.surname}">Nom par défaut</td>
+							<td th:id="${'el-lastname-' + user.id}" th:text="${user.lastname}">Prénom par défaut</td>
+							<td th:id="${'el-login-' + user.id}" th:text="${user.login}">Pseudo par défaut</td>
+							<td th:id="${'el-mail-' + user.id}" th:text="${user.mail}">Mail par défaut</td>
+							<td th:id="${'el-admin-' + user.id}" th:text="${user.admin}">Type par défaut</td>
+							<td><a href="#" class="user-update-btn" th:attr="data-userid=${user.id}" title="Modifier cet utilisateur" data-toggle="modal" data-target="#user-modal"> 
+								<i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"></i>
+							</a> | <a class="user-delete-btn" th:attr="data-userid=${user.id}" href="#" title="Supprimer cet utilisateur" data-toggle="modal" data-target="#delete-modal"> 
+								<i class="fa fa-2x fa-trash-o" aria-hidden="true"></i>
+							</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="box-footer clearfix">
+				<div th:if="${pager.totalPages != -1}" class="pagination-centered">
+					<ul class="pagination pagination-sm no-margin pull-right">
+						<li th:class="${pager.currentPage == 0} ? disabled"><a
+							class="pageLink"
+							th:href="@{/admin/users(pageSize=${selectedPageSize}, page=1, filters=${filters})}">&laquo;</a></li>
+						<li th:class="${pager.currentPage == 0} ? disabled"><a
+							class="pageLink"
+							th:href="@{/admin/users(pageSize=${selectedPageSize}, page=${pager.currentPage}, filters=${filters})}">&larr;</a></li>
+						<li
+							th:class="${pager.currentPage == (page - 1)} ? 'active pointer-disabled'"
+							th:each="page : ${#numbers.sequence(pager.getStartPage(), pager.getEndPage())}"><a
+							class="pageLink"
+							th:href="@{/admin/users(pageSize=${selectedPageSize}, page=${page}, filters=${filters})}"
+							th:text="${page}"></a></li>
+						<li
+							th:class="${pager.currentPage + 1 == pager.totalPages} ? disabled"><a
+							class="pageLink"
+							th:href="@{/admin/users(pageSize=${selectedPageSize}, page=${pager.currentPage + 2}, filters=${filters})}">&rarr;</a></li>
+						<li
+							th:class="${pager.currentPage + 1 == pager.totalPages} ? disabled"><a
+							class="pageLink"
+							th:href="@{/admin/users(pageSize=${selectedPageSize},page=${pager.totalPages}, filters=${filters})}">&raquo;</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- Include search result modal fragment -->
+		<th:block th:include="users/user-search-result-modal::content"></th:block>
+		
+		<!-- Include user modal fragment -->
+		<th:block th:include="users/user-modal::content"></th:block>
+		
+		<!-- Include remove modal fragment -->
+		<th:block th:include="template/delete-modal::content"></th:block>
+	</div>
+	<!-- FIN DU FRAGMENT -->
+
+</body>
+</html>

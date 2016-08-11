@@ -1,2 +1,5 @@
 .custom-badge{background-color:#dff0d8 !important;color:#444;padding:12px;}
 .custom-badge:hover{background-color:#00a65a !important;cursor:pointer;}
+table th {text-align:center;}
+.notifyjs-corner {top: 60px !important;}
+.hr-60{width:60%;margin:10px auto;}

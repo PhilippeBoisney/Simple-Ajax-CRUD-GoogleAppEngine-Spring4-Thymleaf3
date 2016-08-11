@@ -1,0 +1,32 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<body>
+
+	<div th:fragment="content">
+		<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" th:attr="aria-labelledby=#{views.deleteModal.aria-labelledby}">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title"><block th:text="#{views.deleteModal.title}"></block></h4>
+					</div>
+					<div class="modal-body">
+						<div class="modal-form-errors"></div>
+  						<p id="message"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default pull-left" data-dismiss="modal"><block th:text="#{views.deleteModal.btns.closeLabel}"></block></button>
+						<button type="button" class="btn btn-primary"><block th:text="#{views.deleteModal.btns.deleteLabel}"></block></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- FIN DU FRAGMENT -->
+
+</body>
+</html>

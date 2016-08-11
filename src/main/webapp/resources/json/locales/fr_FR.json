@@ -1,0 +1,23 @@
+{	
+	"addUserModalTitle": "Ajouter un utilisateur",
+	"updateUserModalTitle": "Modifier un utilisateur",
+	"deleteUserModalMessage": "Etes-vous sûr de vouloir supprimer cet utilisateur ?",
+	"updateUserModalTitleUpdateBtn": "Modifier cet utilisateur",
+	"updateUserModalTitleDeleteBtn": "Supprimer cet utilisateur",
+	"searchModalAdminNo": "Non",
+	"searchModalAdminYes": "Oui",
+	
+	"deleteExerciseModalMessage": "Etes-vous sûr de vouloir supprimer cet exercice ?",
+	"addExerciseModalTitle": "Ajouter un exercice",
+	"updateExerciseModalTitle": "Modifier un exercice",
+	"updateExerciseModalTitleUpdateBtn": "Modifier cet exercice",
+	"updateExerciseModalTitleDeleteBtn": "Supprimer cet exercice",	
+	
+	"titleSeverarlUsers": "Informations des utilisateurs trouvés",
+	"titleOneUser": "Informations de l'utilisateur trouvé",
+	"searchLastname": "Prénom",
+	"searchName": "Nom",
+	"searchType": "Type",
+	"searchIsAdmin": "Est un administrateur"
+	
+}

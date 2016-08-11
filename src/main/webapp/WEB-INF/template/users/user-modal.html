@@ -1,0 +1,58 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<body>
+
+	<div th:fragment="content">
+		<div class="modal fade" id="user-modal" tabindex="-1" role="dialog" th:attr="aria-labelledby=#{views.users.userModal.aria-labelledby}">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title"><block th:text="#{views.users.userModal.title}"></block></h4>
+					</div>
+					<div class="modal-body">
+						<div class="modal-form-errors"></div>
+  
+						<form th:action="0" role="form" method="POST">
+							<input type="hidden" id="userId" name="userId" />
+							<div class="box-body">
+							<div class="form-group">
+									<label for="name" th:text="#{views.users.userModal.form.name.label}">Name</label> <input type="text"
+										class="form-control" id="name" name="name"
+										th:placeholder="#{views.users.userModal.form.name.placeholder}">
+								</div>
+								<div class="form-group">
+									<label for="lastname" th:text="#{views.users.userModal.form.lastname.label}">Lastname</label> <input type="text"
+										class="form-control" id="lastname" name="lastname"
+										th:placeholder="#{views.users.userModal.form.name.placeholder}">
+								</div>
+								<div class="form-group">
+									<label for="type" th:text="#{views.users.userModal.form.type.label}">Type</label> <input type="text"
+										class="form-control" id="type" name="type"
+										th:placeholder="#{views.users.userModal.form.name.placeholder}">
+								</div>
+								<div class="checkbox">
+									<label> <input type="checkbox" id="isAdmin"
+										name="isAdmin"> <block th:text="#{views.users.userModal.form.admin.label}">Create an admin ?</block>
+									</label>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default pull-left" data-dismiss="modal"><block th:text="#{views.users.userModal.form.btns.closeLabel}"></block></button>
+						<button type="button" id="user-modal-add-btn" class="btn btn-primary btn-add"><block th:text="#{views.users.userModal.form.btns.addLabel}"></block></button>
+						<button type="button" id="user-modal-update-btn" class="btn btn-primary btn-update" style="display:none;"><block th:text="#{views.users.userModal.form.btns.updateLabel}"></block></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- FIN DU FRAGMENT -->
+
+</body>
+</html>

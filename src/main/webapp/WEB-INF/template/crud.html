@@ -3,20 +3,69 @@
   <body>
   
     <div th:fragment="content">
-		<h1>Simple CRUD</h1>
+		<h2 th:utext="|#{views.users.list.title} (<span id='counter'>${totalItems}</span> au total)|">
+			<i class="fa fa-users" aria-hidden="true"></i> Users
+		</h2>
+
+		<div class="box text-center">
+			<div class="box-header">
+				<div class="col-md-4 col-sm-4 col-xs-6">
+					<div class="dataTables_length"
+						style="text-align: left; margin-left: 5px;">
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#user-modal" th:title="#{views.users.table.btns.add.titleLink}">
+							<i class="fa fa-user-plus"></i> <span th:text="#{views.users.table.btns.add.labelLink}"></span>
+						</button>
+					</div>
+				</div>
+				<div class="box-tools">
+					<div class="input-group input-group-sm" style="width:260px;margin-top:6px;">
+						<input type="text" id="table-search" name="table-search" class="form-control pull-right" th:placeholder="#{views.users.table.search.placeholder}">
+
+						<div class="input-group-btn">
+							<button type="submit" id="search-btn-ms" class="btn btn-default">
+								<i class="fa fa-search"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="box-body table-responsive no-padding">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th th:text="#{views.users.table.column.name.label}"></th>
+							<th th:text="#{views.users.table.column.lastname.label}"></th>
+							<th th:text="#{views.users.table.column.type.label}"></th>
+							<th th:text="#{views.users.table.column.admin.label}"></th>
+							<th th:text="#{views.users.table.column.actions.label}" class="col-md-1"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:if="${users != null}" th:each="user, status : ${users}" th:id="${'el-' + user.id}">
+							<td th:id="${'el-name-' + user.id}" th:text="${user.name}">default</td>
+							<td th:id="${'el-lastname-' + user.id}" th:text="${user.lastname}">default</td>
+							<td th:id="${'el-type-' + user.id}" th:text="${user.type}">default</td>
+							<td th:id="${'el-admin-' + user.id}" th:text="${user.admin}">default</td>
+							<td><a href="#" class="user-update-btn" th:attr="data-userid=${user.id}" th:title="#{views.users.table.btns.update.titleLink}" data-toggle="modal" data-target="#user-modal"> 
+								<i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"></i>
+							</a> | <a class="user-delete-btn" th:attr="data-userid=${user.id}" href="#" th:title="#{views.users.table.btns.delete.titleLink}" data-toggle="modal" data-target="#delete-modal"> 
+								<i class="fa fa-2x fa-trash-o" aria-hidden="true"></i>
+							</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<!-- Include search result modal fragment -->
+		<th:block th:include="users/user-search-result-modal::content"></th:block>
 		
-		<table class="table table-bordered">
-		  <tr>
-		    <th>Nom</th>
-		    <th>Description</th>
-		    <th>Stock</th>
-		  </tr>
-		  <tr th:each="product : ${products}">
-		    <td th:text="${product.name}">Nom par défaut</td>
-		    <td th:text="${product.description}">Description par défaut</td>
-		    <td th:text="${product.inStock} ? #{true} : #{false}">Non</td>
-		  </tr>
-		</table>
+		<!-- Include user modal fragment -->
+		<th:block th:include="users/user-modal::content"></th:block>
+		
+		<!-- Include remove modal fragment -->
+		<th:block th:include="delete-modal::content"></th:block>
     </div>
   
   </body>

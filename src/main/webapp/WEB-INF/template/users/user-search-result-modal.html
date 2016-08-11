@@ -1,0 +1,27 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<body>
+
+	<div th:fragment="content">
+		<div class="modal fade" id="user-search-result-modal" tabindex="-1" role="dialog" th:attr="aria-labelledby=#{views.users.searchModal.aria-labelledby}">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title"><block th:text="#{views.users.searchModal.title}"></block> <span class="search-request-name"></span></h4>
+					</div>
+					<div class="modal-body"></div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default pull-left" data-dismiss="modal"><block th:text="#{views.users.searchModal.closeLabel}"></block></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- FIN DU FRAGMENT -->
+
+</body>
+</html>
