@@ -5,7 +5,7 @@ import com.springleafengine.interfaces.IApiObject;
 public class User implements IApiObject{
 	
 	private String id;
-	private String name;
+	private String surname;
 	private String lastname;
 	private String type;
 	private boolean admin;
@@ -14,18 +14,18 @@ public class User implements IApiObject{
 		
 	}
 	
-	public User(String id, String name, String lastname, String type, boolean admin) {
+	public User(String id, String surname, String lastname, String type, boolean admin) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.surname = surname;
 		this.lastname = lastname;
 		this.type = type;
 		this.admin = admin;
 	}
 	
-	public User(String name, String lastname, String type, boolean admin) {
+	public User(String surname, String lastname, String type, boolean admin) {
 		super();
-		this.name = name;
+		this.surname = surname;
 		this.lastname = lastname;
 		this.type = type;
 		this.admin = admin;
@@ -38,15 +38,15 @@ public class User implements IApiObject{
 	public void setId(String id) {
 		this.id = id;
 	}
+	
+	public String getSurname() {
+		return surname;
+	}
 
-	public String getName() {
-		return name;
+	public void setSurname(String surname) {
+		this.surname = surname;
 	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
+
 	public String getLastname() {
 		return lastname;
 	}

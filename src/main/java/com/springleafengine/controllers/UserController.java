@@ -42,6 +42,9 @@ public class UserController {
 	private static List<User> database;
 	private User user;
 	
+	/**
+	 * Inject internationalization resource
+	 */
 	@Resource(name = "messageSource")
     private MessageSource messageSource;
 	
@@ -70,7 +73,7 @@ public class UserController {
 	
 		// Configure variables template
 		model.addAttribute("title", "Simple CRUD");
-		model.addAttribute("currentFragment", "crud");
+		model.addAttribute("currentFragment", "users/list");
 		model.addAttribute("currentFragmentTag", "content");
 		model.addAttribute("userAdmin", userAdmin);
 		model.addAttribute("userMember", userMember);
@@ -119,7 +122,7 @@ public class UserController {
 			} catch(Exception e) {
 				obj.setStatus(500);
 				obj.setStyleClass(AJAX_DANGER);
-				obj.setMessage(messageSource.getMessage("ajax.users.search.error", new Object[0], locale) + " " + e.getMessage());
+				obj.setMessage(messageSource.getMessage("ajax.users.form.error", new Object[0], locale) + e.getMessage());
 				json = gson.toJson(obj).getBytes();
 			}
 			return json;
@@ -128,7 +131,7 @@ public class UserController {
 	/**
 	 * Add a user in database
 	 * 
-	 * @param String name
+	 * @param String surname
 	 * @param String surname
 	 * @param String type
 	 * @param boolean admin
@@ -136,7 +139,7 @@ public class UserController {
 	 * @return ApiJsonResponse
 	 */
 	@RequestMapping({"/users/api-add"})
-	public @ResponseBody byte[] apiAdd(@RequestParam(value = "name", required = false) String name,
+	public @ResponseBody byte[] apiAdd(Locale locale, @RequestParam(value = "surname", required = false) String surname,
 			@RequestParam(value = "lastname", required = false) String lastname,
 			@RequestParam(value = "type", required = false) String type,
 			@RequestParam(value = "admin", required = false) boolean admin) {
@@ -146,27 +149,27 @@ public class UserController {
 			ApiJsonResponse obj = new ApiJsonResponse();
 			
 			try {
-				if(lastname.isEmpty() || name.isEmpty() || type.isEmpty()) {
+				if(lastname.isEmpty() || surname.isEmpty() || type.isEmpty()) {
 					obj.setStatus(503);
 					obj.setStyleClass(AJAX_WARNING);
-					obj.setMessage("Veuillez remplir tous les champs du formulaire");
+					obj.setMessage(messageSource.getMessage("ajax.users.form.pleaseCompleteAllFields", new Object[0], locale));
 				} else {
 					int nb = database.size() + 1;
 					String id = Integer.toString(nb);
-					this.user = new User(id, name, lastname, type, admin);
+					this.user = new User(id, surname, lastname, type, admin);
 					// add user in database with service layer
 					database.add(this.user);
 					
 					obj.setStatus(200);
 					obj.setStyleClass(AJAX_SUCCESS);
-					obj.setMessage("Utilisateur ajouté avec succès");
+					obj.setMessage(messageSource.getMessage("ajax.users.form.add", new Object[0], locale));
 					obj.setObj(this.user);
 				}
 				json = gson.toJson(obj).getBytes("UTF-8");
 			} catch(Exception e) {
 				obj.setStatus(500);
 				obj.setStyleClass(AJAX_DANGER);
-				obj.setMessage("Une erreur est survenue : " + e.getMessage());
+				obj.setMessage(messageSource.getMessage("ajax.users.form.error", new Object[0], locale) + e.getMessage());
 				json = gson.toJson(obj).getBytes();
 			}
 			return json;
@@ -175,7 +178,7 @@ public class UserController {
 	/**
 	 * Update a user in database
 	 * 
-	 * @param String name
+	 * @param String surname
 	 * @param String surname
 	 * @param String type
 	 * @param boolean admin
@@ -183,8 +186,8 @@ public class UserController {
 	 * @return ApiJsonResponse
 	 */
 	@RequestMapping({"/users/api-update"})
-	public @ResponseBody byte[] apiUpdate(@RequestParam(value = "id", required = false) String userId,
-			@RequestParam(value = "name", required = false) String name,
+	public @ResponseBody byte[] apiUpdate(Locale locale, @RequestParam(value = "id", required = false) String userId,
+			@RequestParam(value = "surname", required = false) String surname,
 			@RequestParam(value = "lastname", required = false) String lastname, 
 			@RequestParam(value = "type", required = false) String type,
 			@RequestParam(value = "admin", required = false) boolean admin) {
@@ -194,29 +197,35 @@ public class UserController {
 			ApiJsonResponse obj = new ApiJsonResponse();
 			
 			try {
-				if(lastname.isEmpty() || name.isEmpty() || type.isEmpty()) {
+				if(userId.isEmpty()) {
 					obj.setStatus(503);
 					obj.setStyleClass(AJAX_WARNING);
-					obj.setMessage("Veuillez remplir tous les champs du formulaire");
+					obj.setMessage(messageSource.getMessage("ajax.users.form.finderror", new Object[0], locale));
 				} else {
-					// find user in database with service layer
-					this.user = this.findUserInDatabase(userId);
-					this.bindParam(name, lastname, type, admin);
-					// update user in database with service layer
-					if(currentIndex != -1) {
-						database.set(currentIndex, this.user);
+					if(lastname.isEmpty() || surname.isEmpty() || type.isEmpty()) {
+						obj.setStatus(503);
+						obj.setStyleClass(AJAX_WARNING);
+						obj.setMessage(messageSource.getMessage("ajax.users.form.pleaseCompleteAllFields", new Object[0], locale));
+					} else {
+						// find user in database with service layer
+						this.user = this.findUserInDatabase(userId);
+						this.bindParam(surname, lastname, type, admin);
+						// update user in database with service layer
+						if(currentIndex != -1) {
+							database.set(currentIndex, this.user);
+						}
+						
+						obj.setStatus(200);
+						obj.setStyleClass(AJAX_SUCCESS);
+						obj.setMessage(messageSource.getMessage("ajax.users.form.update", new Object[0], locale));
+						obj.setObj(this.user);
 					}
-					
-					obj.setStatus(200);
-					obj.setStyleClass(AJAX_SUCCESS);
-					obj.setMessage("Utilisateur modifié avec succès");
-					obj.setObj(this.user);
 				}
 				json = gson.toJson(obj).getBytes("UTF-8");
 			} catch(Exception e) {
 				obj.setStatus(500);
 				obj.setStyleClass(AJAX_DANGER);
-				obj.setMessage("Une erreur est survenue : " + e.getMessage());
+				obj.setMessage(messageSource.getMessage("ajax.users.form.error", new Object[0], locale) + e.getMessage());
 				json = gson.toJson(obj).getBytes();
 			}
 			return json;
@@ -230,7 +239,7 @@ public class UserController {
 	 * @return ApiJsonResponse
 	 */
 	@RequestMapping({"/users/api-delete"})
-	public @ResponseBody byte[] apiDelete(@RequestParam(value = "id", required = false) String userId) {
+	public @ResponseBody byte[] apiDelete(Locale locale, @RequestParam(value = "id", required = false) String userId) {
 		
 			byte[] json;
 			Gson gson = new Gson();
@@ -240,7 +249,7 @@ public class UserController {
 				if(userId.isEmpty()) {
 					obj.setStatus(503);
 					obj.setStyleClass(AJAX_WARNING);
-					obj.setMessage("Impossible de retrouver l'utilisateur sélectionné.");
+					obj.setMessage(messageSource.getMessage("ajax.users.form.finderror", new Object[0], locale));
 				} else {
 					this.user = this.findUserInDatabase(userId);
 					// remove user in database with service layer
@@ -250,14 +259,14 @@ public class UserController {
 					
 					obj.setStatus(200);
 					obj.setStyleClass(AJAX_SUCCESS);
-					obj.setMessage("Utilisateur supprimé avec succès");
+					obj.setMessage(messageSource.getMessage("ajax.users.form.delete", new Object[0], locale));
 					obj.setOldId(userId);
 				}
 				json = gson.toJson(obj).getBytes("UTF-8");
 			} catch(Exception e) {
 				obj.setStatus(500);
 				obj.setStyleClass(AJAX_DANGER);
-				obj.setMessage("Une erreur est survenue : " + e.getMessage());
+				obj.setMessage(messageSource.getMessage("ajax.users.form.error", new Object[0], locale) + e.getMessage());
 				json = gson.toJson(obj).getBytes();
 			}
 			return json;
@@ -269,10 +278,10 @@ public class UserController {
 	 * @param String name
 	 * @param String surname
 	 * @param String type
-	 * @param boolean admin
+	 * @param boolean surname
 	 */
-	private void bindParam(String name, String lastname, String type, boolean admin) {
-		this.user.setName(name);
+	private void bindParam(String surname, String lastname, String type, boolean admin) {
+		this.user.setSurname(surname);
 		this.user.setLastname(lastname);
 		this.user.setType(type);
 		if(admin) {
@@ -280,6 +289,12 @@ public class UserController {
 		}
 	}
 	
+	/**
+	 * Find user object in database list
+	 * 
+	 * @param String userId
+	 * @return User
+	 */
 	private User findUserInDatabase(String userId) {
 		int count = 0;
 		for(User u : database) {
@@ -292,6 +307,11 @@ public class UserController {
 		return null;
 	}
 	
+	/**
+	 * Find users object in database list
+	 * @param String name
+	 * @return User list
+	 */
 	private List<IApiObject> findAllUsersInDatabase(String name) {
 		List<IApiObject> users = new ArrayList<>();
 		for(User u : database) {

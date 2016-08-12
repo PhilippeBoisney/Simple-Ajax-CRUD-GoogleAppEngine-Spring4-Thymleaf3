@@ -1,0 +1,28 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<body>
+
+	<div th:fragment="content">
+		
+		<!-- The fileinput-button span is used to style the file input field as button -->
+	    <span class="btn btn-success fileinput-button">
+	        <i class="glyphicon glyphicon-plus"></i>
+	        <span th:text="#{views.ajax.download.btn.label}"></span>
+	        <!-- The file input field used as target for the file upload widget -->
+	        <input id="file-upload-btn" type="file" name="files[]" multiple>
+	    </span>
+	    <br>
+	    <br>
+	    <!-- The global progress bar -->
+	    <div id="progress" class="progress">
+	        <div class="progress-bar progress-bar-success"></div>
+	    </div>
+	    <!-- The container for the uploaded files -->
+	    <div id="files" class="files ajax-files"></div>
+	    
+	</div>
+	<!-- FIN DU FRAGMENT -->
+
+</body>
+</html>

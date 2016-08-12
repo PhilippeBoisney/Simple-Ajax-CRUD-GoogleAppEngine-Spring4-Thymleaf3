@@ -22,7 +22,7 @@ $userModule = APP[APP.getNamespace()][APP.getModule()];
     // Form containers
     var modalFormElements = [];
     var userIdInput = "#userId";
-    var nameInput = "#name";
+    var surnameInput = "#surname";
     var lastnameInput = "#lastname";
     var typeInput = "#type";
     var adminCheckbox = "#isAdmin";
@@ -30,7 +30,7 @@ $userModule = APP[APP.getNamespace()][APP.getModule()];
     // Table containers
     var TRContainer = "#el-";
     var userIdTRContainer = "#el-userid-";
-    var nameTRContainer = "#el-name-";
+    var surnameTRContainer = "#el-surname-";
     var lastnameTRContainer = "#el-lastname-";
     var typeTRContainer = "#el-type-";
     var adminTRContainer = "#el-admin-";
@@ -52,7 +52,7 @@ $userModule = APP[APP.getNamespace()][APP.getModule()];
     		
     		// Event for show user-modal
 			$(userModalContainer).on('shown.bs.modal', function () {
-				$(nameInput).focus();
+				$(surnameInput).focus();
 			});
 			
 			// Event for hide user-modal
@@ -97,7 +97,7 @@ $userModule = APP[APP.getNamespace()][APP.getModule()];
     	},
     	_retrieveModalFormElements: function() {
     		modalFormElements.push($(userIdInput));
-    		modalFormElements.push($(nameInput));
+    		modalFormElements.push($(surnameInput));
     		modalFormElements.push($(lastnameInput));
     		modalFormElements.push($(typeInput));
     		modalFormElements.push($(adminCheckbox));
@@ -108,7 +108,7 @@ $userModule = APP[APP.getNamespace()][APP.getModule()];
     		$(userModalUpdateBtn).show();
     		
     		$(userIdInput).val(id);
-    		$(nameInput).val($(nameTRContainer + id).text());
+    		$(surnameInput).val($(surnameTRContainer + id).text());
     		$(lastnameInput).val($(lastnameTRContainer + id).text());
     		$(typeInput).val($(typeTRContainer + id).text());
     		
@@ -124,7 +124,7 @@ $userModule = APP[APP.getNamespace()][APP.getModule()];
     		}
 			return {
 				id: $(userIdInput).val(),
-				name: $(nameInput).val(),
+				surname: $(surnameInput).val(),
 				lastname: $(lastnameInput).val(),
 				type: $(typeInput).val(),
 				admin: admin
@@ -145,7 +145,7 @@ $userModule = APP[APP.getNamespace()][APP.getModule()];
     	_updateTable: function(add, user) {
     		if(add) {    		    
     			var row = '<tr id="'+ TRContainer.slice(1) + user.id +'" class="bg-success">';
-    			row += '<td id="'+ nameTRContainer.slice(1) + user.id +'">'+ user.name +'</td>';
+    			row += '<td id="'+ surnameTRContainer.slice(1) + user.id +'">'+ user.surname +'</td>';
     			row += '<td id="'+ lastnameTRContainer.slice(1) + user.id +'">'+ user.lastname +'</td>';
     			row += '<td id="'+ typeTRContainer.slice(1) + user.id +'">'+ user.type +'</td>';
     			row += '<td id="'+ adminTRContainer.slice(1) + user.id +'">'+ user.admin +'</td>';
@@ -156,7 +156,7 @@ $userModule = APP[APP.getNamespace()][APP.getModule()];
     			self._initEventsOnRowsButtons(TRContainer + user.id);
     		} else {
     			$(TRContainer+user.id).attr('class', 'bg-success');
-    			$(nameTRContainer+user.id).text(user.name);
+    			$(surnameTRContainer+user.id).text(user.surname);
     			$(lastnameTRContainer+user.id).text(user.lastname);
     			$(typeTRContainer+user.id).text(user.type);
     			$(adminTRContainer+user.id).text(user.admin);
@@ -211,8 +211,8 @@ $userModule = APP[APP.getNamespace()][APP.getModule()];
 	    		if(user.admin) {
 	    			admin = i18next.t('searchModalAdminYes');
 	    		}
-	    		html += '<div class="user-name">';
-	    		html += '<span class="name-label">'+ i18next.t('searchName') +' : </span><span class="name-value">'+ user.name +'</span>';
+	    		html += '<div class="user-surname">';
+	    		html += '<span class="surname-label">'+ i18next.t('searchName') +' : </span><span class="surname-value">'+ user.surname +'</span>';
 	    		html += '</div>';
 	    		html += '<div class="user-lastname">';
 	    		html += '<span class="lastname-label">'+ i18next.t('searchLastname') +' : </span><span class="lastname-value">'+ user.lastname +'</span>';

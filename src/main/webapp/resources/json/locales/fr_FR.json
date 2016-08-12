@@ -18,6 +18,8 @@
 	"searchLastname": "Prénom",
 	"searchName": "Nom",
 	"searchType": "Type",
-	"searchIsAdmin": "Est un administrateur"
+	"searchIsAdmin": "Est un administrateur",
 	
+	"maxFiles": "Vous avez atteint le maximum de fichiers téléchargeables",
+	"imagesDownloaded": "Images downloaded successfully"
 }
