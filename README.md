@@ -12,21 +12,11 @@ You need a IDE for Spring with Google App Engine server. Download [Spring-STS](h
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+1. Download the project
+2. From the download folder, install the project in your local Maven repo by running this command: <code>mvn clean install</code>
+3. Do not forget to enter your own Group ID, Artifact ID and App ID
 
-Stay what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+Enjoy !
 
 ## Running the demo
 
