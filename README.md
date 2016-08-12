@@ -1,18 +1,14 @@
-# Simple-Ajax-CRUD-AppEngine-Spring4-Thymleaf3-AdminLTE-Blueimp-Internationalization
+# Simple-Ajax-CRUD-GoogleAppEngine-Spring4-Thymleaf3-AdminLTE-Blueimp-Internationalization
 
-Simple Ajax CRUD application for App Engine. Use Spring 4, Thymeleaf 3, AdminLTE open-source template and Blueimp for upload images via ajax.
+Simple Ajax CRUD application for Google App Engine. Use Spring 4, Thymeleaf 3, AdminLTE open-source template and Blueimp for upload images via ajax.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Clone this project and run it in local.
 
 ### Prerequisities
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+You need a IDE for Spring with Google App Engine server. Download [Spring-STS](https://spring.io/tools/)
 
 ### Installing
 
@@ -34,7 +30,7 @@ End with an example of getting some data out of the system or using it for a lit
 
 ## Running the demo
 
-[Démo on appa engine](http://1-dot-springleafengine-app.appspot.com/)
+[Démo on Google App Engine](http://1-dot-springleafengine-app.appspot.com/)
 
 ## Authors
 
@@ -46,7 +42,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Spring4
+* Spring framework
 * Thymeleaf
 * AdminLTE
 * Blueimp
