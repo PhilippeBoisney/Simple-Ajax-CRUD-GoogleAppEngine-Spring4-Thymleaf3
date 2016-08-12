@@ -22,6 +22,14 @@ Enjoy !
 
 [Démo on Google App Engine](http://1-dot-springleafengine-app.appspot.com/)
 
+## FEATURES
+- [x] Spring framework 4
+- [x] Thymeleaf 3
+- [x] Admin LTE 2.3.5
+- [x] Blueimp
+- [x] Simple CRUD in Ajax for User
+- [x] Download a file via Ajax on Google Cloud Storage with Bucket
+
 ## Authors
 
 * **Sami MADINI** - [Simple Ajax CRUD - Spring4 - Thymeleaf3](https://github.com/SamiMadini/Simple-CRUD-AppEngine-Spring4/)
