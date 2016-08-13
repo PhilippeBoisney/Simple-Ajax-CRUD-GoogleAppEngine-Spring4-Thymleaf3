@@ -20,7 +20,9 @@ Enjoy !
 
 ## Running the demo
 
-[Démo on Google App Engine](http://1-dot-springleafengine-app.appspot.com/)
+[Demo on Google App Engine](http://1-dot-springleafengine-app.appspot.com/)
+
+![HOME](/demoimages/home-small.jpg?raw=true "HOME")
 
 ## FEATURES
 - [x] Spring framework 4
