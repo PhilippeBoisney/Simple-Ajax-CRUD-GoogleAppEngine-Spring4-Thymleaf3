@@ -40,8 +40,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Spring framework
-* Thymeleaf
-* AdminLTE
-* Blueimp
+* Spring framework [Official link](https://spring.io/)
+* Thymeleaf [Official link](http://www.thymeleaf.org/)
+* AdminLTE [Official link](https://almsaeedstudio.com/)
+* Blueimp [Official link](https://github.com/blueimp/jQuery-File-Upload)
 
