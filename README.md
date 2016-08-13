@@ -22,7 +22,7 @@ Enjoy !
 
 [Demo on Google App Engine](http://1-dot-springleafengine-app.appspot.com/)
 
-![HOME](/demoimages/home-small.jpg?raw=true "HOME")
+[![HOME](/demoimages/home-small.jpg?raw=true "HOME")](https://raw.githubusercontent.com/SamiMadini/Simple-Ajax-CRUD-GoogleAppEngine-Spring4-Thymleaf3/master/demoimages/home-large.jpg)
 
 ## FEATURES
 - [x] Spring framework 4
