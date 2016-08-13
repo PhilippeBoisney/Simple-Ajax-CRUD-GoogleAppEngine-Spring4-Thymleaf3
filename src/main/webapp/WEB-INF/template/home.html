@@ -6,34 +6,33 @@
     	<h1>Spring 4 + Thymeleaf 3 + App Engine + Internationalization + AdminLTE Template + Blueimp</h1>
     	
     	<div class="well home-text col-md-3">
-    		<p><strong>Spring</strong> est un framework libre pour construire et définir l'infrastructure d'une application java3, dont il facilite le développement et les tests.
-    		<a href="https://spring.io/" target="_blank"><span class="badge custom-badge"><i class="fa fa-envira"></i> En savoir plus</span></a></p>
+    		<p><strong>Spring</strong> <span th:text="#{views.home.spring}"></span>
+    		<a href="https://spring.io/" target="_blank"><span class="badge custom-badge"><i class="fa fa-envira"></i> <span th:text="#{views.home.btn.readmore.label}"></span></span></a></p>
     		
-    		<p><strong>Google App Engine</strong> est une plateforme de conception et d'hébergement d'applications web basée sur les serveurs de Google.
-    		<a href="https://cloud.google.com/appengine/" target="_blank"><span class="badge custom-badge"><i class="fa fa-google"></i> En savoir plus</span></a></p>
+    		<p><strong>Google App Engine</strong> <span th:text="#{views.home.google}"></span>
+    		<a href="https://cloud.google.com/appengine/" target="_blank"><span class="badge custom-badge"><i class="fa fa-google"></i> <span th:text="#{views.home.btn.readmore.label}"></span></span></a></p>
     	</div>
     	
     	<div class="well home-text col-md-3">
-    		<p><strong>Thymeleaf</strong> est un moteur de template Java moderne côté serveur pour les environnements Web et autonomes. Il embarque de nombreuses fonctionnalités.
-    		<a href="http://www.thymeleaf.org/" target="_blank"><span class="badge custom-badge"><i class="fa fa-leaf"></i> En savoir plus</span></a></p>
+    		<p><strong>Thymeleaf</strong> <span th:text="#{views.home.thymeleaf}"></span>
+    		<a href="http://www.thymeleaf.org/" target="_blank"><span class="badge custom-badge"><i class="fa fa-leaf"></i> <span th:text="#{views.home.btn.readmore.label}"></span></span></a></p>
     		
-    		<p>Best open source admin dashboard & control panel theme. Built on top of Bootstrap 3, <strong>AdminLTE</strong>  provides a range of responsive, 
-    		reusable, and commonly used components.
-    		<a href="https://almsaeedstudio.com/" target="_blank"><span class="badge custom-badge"><i class="fa fa-tasks"></i> En savoir plus</span></a></p>
+    		<p><span th:text="#{views.home.adminlte}"></span>
+    		<a href="https://almsaeedstudio.com/" target="_blank"><span class="badge custom-badge"><i class="fa fa-tasks"></i> <span th:text="#{views.home.btn.readmore.label}"></span></span></a></p>
     	</div>
     	
     	<div class="well home-text col-md-5">
-    		<h3>Récupération des variables de traduction et du controller</h3>
-    		<p>Le titre de l'application traduit : <span th:text="#{title.application}">App title</span> 
-			<br />La variable title définie dans le controller : <span th:text="${title}">Title</span>
-			<br />Accès direct à la variable titre : [[ ${title} ]]</p>
+    		<h3 th:text="#{views.home.title.translateAndControllerVariables}"></h3>
+    		<p><span th:text="#{views.home.title.app.translated}"></span> <span th:text="#{title.application}">App title</span> 
+			<br /><span th:text="#{views.home.title.defined.in.controller}"></span> <span th:text="${title}">Title</span>
+			<br /><span th:text="#{views.home.title.direct.access}"></span> [[ ${title} ]]</p>
 			
-			<h3>Récupération des informations de l'utilisateur Admin</h3>
+			<h3 th:text="#{views.home.title.userAdminInfo}"></h3>
 			<span th:text="${userAdmin.surname + ' ' + userAdmin.lastname}"></span>
 			<span th:text="${userAdmin.type}"></span>
 			<span th:text="${userAdmin.admin}"></span>
 			
-			<h3>Affichage en UTF-8 ?</h3>
+			<h3 th:text="#{views.home.title.utf8}"></h3>
 	    	<p>Test (éèöôàç%ùîïàì)</p>
 		</div>		
 	    
@@ -54,9 +53,9 @@
     	
     	<div class="well home-text  col-md-3">
 			<h3>Blueimp - Upload your images via ajax</h3>
-			<p>File Upload widget with multiple file selection, drag&drop support, progress bar, validation and preview images, audio and video for jQuery</p>
+			<p th:text="#{views.home.blueimp}"></p>
 			
-			<a href="https://github.com/blueimp/jQuery-File-Upload" target="_blank"><span class="badge custom-badge"><i class="fa fa-download"></i> En savoir plus</span></a></p>
+			<a href="https://github.com/blueimp/jQuery-File-Upload" target="_blank"><span class="badge custom-badge"><i class="fa fa-download"></i> <span th:text="#{views.home.btn.readmore.label}"></span></span></a></p>
     	</div>
     	
     	<div class="well home-text  col-md-5">

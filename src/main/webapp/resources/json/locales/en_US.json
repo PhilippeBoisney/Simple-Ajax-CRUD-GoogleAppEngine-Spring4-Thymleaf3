@@ -1,22 +1,19 @@
-{
-	"addUserModalTitle": "Ajouter un utilisateur",
-	"updateUserModalTitle": "Modifier un utilisateur",
-	"deleteUserModalMessage": "Etes-vous sûr de vouloir supprimer cet utilisateur ?",
-	"updateUserModalTitleUpdateBtn": "Modifier cet utilisateur",
-	"updateUserModalTitleDeleteBtn": "Supprimer cet utilisateur",
-	"searchModalAdminNo": "Non",
-	"searchModalAdminYes": "Oui",
+{	
+	"addUserModalTitle": "Add user",
+	"updateUserModalTitle": "Edit user",
+	"deleteUserModalMessage": "Are you sure you want to remove this user ?",
+	"updateUserModalTitleUpdateBtn": "Edit this user",
+	"updateUserModalTitleDeleteBtn": "Remove this user",
+	"searchModalAdminNo": "No",
+	"searchModalAdminYes": "Yes",
 	
-	"deleteExerciseModalMessage": "Etes-vous sûr de vouloir supprimer cet exercice ?",
-	"addExerciseModalTitle": "Ajouter un exercice",
-	"updateExerciseModalTitle": "Modifier un exercice",
-	"updateExerciseModalTitleUpdateBtn": "Modifier cet exercice",
-	"updateExerciseModalTitleDeleteBtn": "Supprimer cet exercice",	
-	
-	"titleSeverarlUsers": "Informations des utilisateurs trouvés",
-	"titleOneUser": "Informations de l'utilisateur trouvé",
-	"searchLastname": "Prénom",
-	"searchName": "Nom",
+	"titleSeverarlUsers": "Information users found",
+	"titleOneUser": "Information of the user found",
+	"searchLastname": "Firstname",
+	"searchName": "Lastname",
 	"searchType": "Type",
-	"searchIsAdmin": "Est un administrateur"
+	"searchIsAdmin": "Is an administrator",
+	
+	"maxFiles": "You have reached the maximum downloadable files",
+	"imagesDownloaded": "Images downloaded successfully"
 }

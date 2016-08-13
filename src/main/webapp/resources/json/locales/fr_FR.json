@@ -7,12 +7,6 @@
 	"searchModalAdminNo": "Non",
 	"searchModalAdminYes": "Oui",
 	
-	"deleteExerciseModalMessage": "Etes-vous sûr de vouloir supprimer cet exercice ?",
-	"addExerciseModalTitle": "Ajouter un exercice",
-	"updateExerciseModalTitle": "Modifier un exercice",
-	"updateExerciseModalTitleUpdateBtn": "Modifier cet exercice",
-	"updateExerciseModalTitleDeleteBtn": "Supprimer cet exercice",	
-	
 	"titleSeverarlUsers": "Informations des utilisateurs trouvés",
 	"titleOneUser": "Informations de l'utilisateur trouvé",
 	"searchLastname": "Prénom",
@@ -21,5 +15,5 @@
 	"searchIsAdmin": "Est un administrateur",
 	
 	"maxFiles": "Vous avez atteint le maximum de fichiers téléchargeables",
-	"imagesDownloaded": "Images downloaded successfully"
+	"imagesDownloaded": "Images téléchargé avec succès"
 }
