@@ -36,7 +36,7 @@ Enjoy !
 
 ## Authors
 
-* **Sami MADINI** - [Simple Ajax CRUD - Spring4 - Thymeleaf3](https://github.com/SamiMadini/Simple-CRUD-AppEngine-Spring4/)
+* **Sami MADINI** - [Simple Ajax CRUD - Spring4 - Thymeleaf3](https://github.com/SamiMadini/Simple-Ajax-CRUD-GoogleAppEngine-Spring4-Thymleaf3)
 
 ## License
 
