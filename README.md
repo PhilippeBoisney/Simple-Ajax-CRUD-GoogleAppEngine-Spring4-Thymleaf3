@@ -26,7 +26,7 @@ Enjoy !
 
 [![USERS LIST](/demoimages/user-list-small.jpg?raw=true "USERS LIST")](https://raw.githubusercontent.com/SamiMadini/Simple-Ajax-CRUD-GoogleAppEngine-Spring4-Thymleaf3/master/demoimages/user-list-large.jpg)
 
-## FEATURES
+## Features
 - [x] Spring framework 4
 - [x] Thymeleaf 3
 - [x] Admin LTE 2.3.5
